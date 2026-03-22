@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "discovermap.client", "discovermap.client\discovermap.client.esproj", "{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscoverMap.Server", "DiscoverMap.Server\DiscoverMap.Server.csproj", "{C07A8979-190A-42C2-ABF3-FBD27F1F265B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		client.Dockerfile = client.Dockerfile
+		docker-compose.yml = docker-compose.yml
+		server.Dockerfile = server.Dockerfile
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A217FF20-2B09-C286-F2CF-BB8F3C880AD1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C07A8979-190A-42C2-ABF3-FBD27F1F265B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07A8979-190A-42C2-ABF3-FBD27F1F265B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07A8979-190A-42C2-ABF3-FBD27F1F265B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07A8979-190A-42C2-ABF3-FBD27F1F265B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8AF8D48-2B82-44D3-9EE7-C17240ECB9E0}
+	EndGlobalSection
+EndGlobal
