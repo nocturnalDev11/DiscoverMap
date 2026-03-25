@@ -1,9 +1,9 @@
-﻿using DiscoverMap.Server.DTOs;
-using DiscoverMap.Server.Models;
-using DiscoverMap.Server.Services;
+﻿using DiscoverMap.Server.Features.Pins.Services;
+using DiscoverMap.Server.Features.Pins.Models;
+using DiscoverMap.Server.Features.Pins.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DiscoverMap.Server.Controllers
+namespace DiscoverMap.Server.Features.Pins.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

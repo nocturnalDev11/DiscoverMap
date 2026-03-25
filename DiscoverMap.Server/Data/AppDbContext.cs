@@ -1,4 +1,4 @@
-﻿using DiscoverMap.Server.Models;
+﻿using DiscoverMap.Server.Features.Pins.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-﻿namespace DiscoverMap.Server.DTOs
+﻿namespace DiscoverMap.Server.Features.Pins.DTOs
 {
     public class CreatePinDTO
     {

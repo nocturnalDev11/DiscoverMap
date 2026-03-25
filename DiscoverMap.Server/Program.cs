@@ -1,48 +1,31 @@
-﻿using DiscoverMap.Server.Configurations;
-using DiscoverMap.Server.Data;
-using DiscoverMap.Server.Data.Seeders;
-using DiscoverMap.Server.Repositories;
-using DiscoverMap.Server.Repositories.Interfaces;
-using DiscoverMap.Server.Services;
-using Microsoft.EntityFrameworkCore;
+﻿using DiscoverMap.Server.Common.Helpers;
+using DiscoverMap.Server.Extensions;
+using DiscoverMap.Server.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add DbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Add repositories & services (scoped, not singleton)
-builder.Services.AddScoped<IPinRepository, PinRepository>();
-builder.Services.AddScoped<PinService>();
-
-// Add controllers, CORS, etc.
-builder.Services.AddControllers();
-builder.Services.AddOpenApi();
-builder.Services.AddCorsPolicy();
+// Add Services
+builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
 
-// Seed database (optional)
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    await PinSeeder.SeedAsync(dbContext);
-}
+// Seed Database
+await app.SeedDatabaseAsync();
 
 // Middleware
-app.UseCors("AllowFrontend");
-app.UseDefaultFiles();
-app.MapStaticAssets();
+// app.UseApplicationMiddleware();
 
+// Routes
+app.MapPinRoutes();
+// app.MapAuthRoutes(); <-- uncomment when Auth is ready :)
+
+// Swagger / OpenAPI
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
+// Fallback
 app.MapFallbackToFile("/index.html");
 
 app.Run();
