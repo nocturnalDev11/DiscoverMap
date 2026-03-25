@@ -13,8 +13,9 @@ dist-ssr
 *.local
 
 # App Settings
-appsettings*.json
-appsettings.*.json
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Local.json
 
 # Environment variables
 .env
