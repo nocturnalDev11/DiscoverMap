@@ -1,28 +1,25 @@
 ﻿using DiscoverMap.Server.Models;
-using DiscoverMap.Server.Repositories;
+using DiscoverMap.Server.Repositories.Interfaces;
 
 namespace DiscoverMap.Server.Services
 {
-    namespace DiscoverMap.Server.Services
+    public class PinService
     {
-        public class PinService
+        private readonly IPinRepository _repo;
+
+        public PinService(IPinRepository repo)
         {
-            private readonly PinRepository _repo;
+            _repo = repo;
+        }
 
-            public PinService(PinRepository repo)
-            {
-                _repo = repo;
-            }
+        public async Task<List<Pin>> GetAllPinsAsync()
+        {
+            return await _repo.GetAllAsync();
+        }
 
-            public List<Pin> GetAllPins()
-            {
-                return _repo.GetAll();
-            }
-
-            public void CreatePin(Pin pin)
-            {
-                _repo.Add(pin);
-            }
+        public async Task CreatePinAsync(Pin pin)
+        {
+            await _repo.AddAsync(pin);
         }
     }
 }

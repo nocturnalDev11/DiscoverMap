@@ -1,7 +1,6 @@
 ﻿using DiscoverMap.Server.DTOs;
 using DiscoverMap.Server.Models;
 using DiscoverMap.Server.Services;
-using DiscoverMap.Server.Services.DiscoverMap.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DiscoverMap.Server.Controllers
@@ -18,14 +17,14 @@ namespace DiscoverMap.Server.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetPins()
+        public async Task<IActionResult> GetPins()
         {
-            var pins = _service.GetAllPins();
+            var pins = await _service.GetAllPinsAsync();
             return Ok(pins);
         }
 
         [HttpPost]
-        public IActionResult CreatePin(CreatePinDTO dto)
+        public async Task<IActionResult> CreatePin(CreatePinDTO dto)
         {
             var pin = new Pin
             {
@@ -37,7 +36,7 @@ namespace DiscoverMap.Server.Controllers
                 ImageUrl = dto.ImageUrl
             };
 
-            _service.CreatePin(pin);
+            await _service.CreatePinAsync(pin);
 
             return Ok(pin);
         }

@@ -1,20 +1,28 @@
-﻿using DiscoverMap.Server.Models;
+﻿using DiscoverMap.Server.Data;
+using DiscoverMap.Server.Models;
+using DiscoverMap.Server.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiscoverMap.Server.Repositories
 {
-    public class PinRepository
+    public class PinRepository : IPinRepository
     {
-        private static List<Pin> _pins = new List<Pin>();
+        private readonly AppDbContext _dbContext;
 
-        public List<Pin> GetAll()
+        public PinRepository(AppDbContext dbContext)
         {
-            return _pins;
+            _dbContext = dbContext;
         }
 
-        public void Add(Pin pin)
+        public async Task<List<Pin>> GetAllAsync()
         {
-            pin.Id = _pins.Count + 1;
-            _pins.Add(pin);
+            return await _dbContext.Pins.ToListAsync();
+        }
+
+        public async Task AddAsync(Pin pin)
+        {
+            await _dbContext.Pins.AddAsync(pin);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
