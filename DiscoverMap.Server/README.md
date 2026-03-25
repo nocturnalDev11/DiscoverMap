@@ -1,5 +1,5 @@
-﻿## File Structure for DiscoverMap.Server:
-
+## File Structure for DiscoverMap.Server:
+```
 DiscoverMap.Server/
 │
 ├── Common/
@@ -55,3 +55,4 @@ DiscoverMap.Server/
 │   └── PinRoutes.cs
 │
 └── Program.cs
+```
