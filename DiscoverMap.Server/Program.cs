@@ -15,9 +15,12 @@ await app.SeedDatabaseAsync();
 // Middleware
 // app.UseApplicationMiddleware();
 
+// Cors
+app.UseCors("AllowFrontend");
+
 // Routes
 app.MapPinRoutes();
-// app.MapAuthRoutes(); <-- uncomment when Auth is ready :)
+app.MapAuthRoutes();
 
 // Swagger / OpenAPI
 if (app.Environment.IsDevelopment())

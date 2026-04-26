@@ -8,9 +8,10 @@ namespace DiscoverMap.Server.Routes
         {
             app.MapControllerRoute(
                 name: "pins",
-                pattern: "api/pins/{action=Index}/{id?}",
+                pattern: "api/pin/{action}/{id?}",
                 defaults: new { 
-                    controller = nameof(PinController)
+                    controller = "Pin", 
+                    action = "GetPins"
                 }
             );
         }
