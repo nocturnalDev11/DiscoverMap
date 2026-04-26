@@ -1,5 +1,8 @@
-﻿using DiscoverMap.Server.Configurations;
+using DiscoverMap.Server.Configurations;
 using DiscoverMap.Server.Data;
+using DiscoverMap.Server.Features.Auth.Repositories;
+using DiscoverMap.Server.Features.Auth.Repositories.Interfaces;
+using DiscoverMap.Server.Features.Auth.Services;
 using DiscoverMap.Server.Features.Pins.Repositories;
 using DiscoverMap.Server.Features.Pins.Repositories.Interfaces;
 using DiscoverMap.Server.Features.Pins.Services;
@@ -18,6 +21,9 @@ namespace DiscoverMap.Server.Extensions
             // Repositories & Services
             services.AddScoped<IPinRepository, PinRepository>();
             services.AddScoped<PinService>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<AuthService>();
 
             // Controllers, OpenAPI, CORS
             services.AddControllers();
