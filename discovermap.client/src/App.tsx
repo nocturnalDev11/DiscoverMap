@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import Map from "./components/Map";
+import MapPage from './pages/MapPage';
 
 function App() {
-  return <Map />;
+    return <MapPage />;
 }
 
 export default App;

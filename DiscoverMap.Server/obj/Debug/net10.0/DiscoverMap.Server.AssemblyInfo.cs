@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiscoverMap.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86e6de3450b4d3993161258bee2fd243792b2c52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a729f47ad910006a2fa0bab618e061432ca3dbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiscoverMap.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiscoverMap.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
