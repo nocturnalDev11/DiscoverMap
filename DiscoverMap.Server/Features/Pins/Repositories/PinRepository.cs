@@ -1,10 +1,11 @@
 ﻿using DiscoverMap.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using DiscoverMap.Server.Features.Pins.Models;
+using DiscoverMap.Server.Features.Pins.Repositories.Interfaces;
 
 namespace DiscoverMap.Server.Features.Pins.Repositories
 {
-    public class PinRepository
+    public class PinRepository : IPinRepository
     {
         private readonly AppDbContext _dbContext;
 

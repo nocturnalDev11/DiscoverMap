@@ -1,0 +1,34 @@
+using Microsoft.AspNetCore.Mvc;
+using DiscoverMap.Server.Features.Auth.DTOs;
+using DiscoverMap.Server.Features.Auth.Services;
+
+namespace DiscoverMap.Server.Features.Auth.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
+    {
+        private readonly AuthService _authService;
+
+        public AuthController(AuthService authService)
+        {
+            _authService = authService;
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterDTO dto)
+        {
+            var result = await _authService.RegisterAsync(dto);
+            if (!result) return BadRequest("Username or email already exists.");
+            return Ok("User registered successfully.");
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDTO dto)
+        {
+            var user = await _authService.LoginAsync(dto);
+            if (user == null) return Unauthorized("Invalid credentials.");
+            return Ok("jwt_coming_soon");
+        }
+    }
+}
